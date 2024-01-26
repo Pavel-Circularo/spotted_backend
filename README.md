@@ -11,7 +11,7 @@ The Spotted app is a Django-based application for collecting and managing car da
 
 ## Technologies Used
 - Django: A high-level Python Web framework.
-- Django REST Framework: A powerful and flexible toolkit for building Web APIs.
+- Django REST Framework: Toolkit for building Web APIs.
 - dj-rest-auth: Django REST framework-based authentication.
 
 ## Setup and Installation
