@@ -1,6 +1,7 @@
 from rest_framework import viewsets, permissions
 from .models import Brand, Car
 from .serializers import BrandSerializer, CarSerializer
+from .filters import CarFilter
 
 
 class BrandViewSet(viewsets.ReadOnlyModelViewSet):
@@ -10,10 +11,11 @@ class BrandViewSet(viewsets.ReadOnlyModelViewSet):
 
 class CarViewSet(viewsets.ModelViewSet):
     serializer_class = CarSerializer
+    filterset_class = CarFilter
 
     def get_queryset(self):
-        # Only return cars that belong to the current user
-        return Car.objects.filter(user=self.request.user)
+        queryset = Car.objects.filter(user=self.request.user)
+        return queryset
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
